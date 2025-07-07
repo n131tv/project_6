@@ -1,7 +1,6 @@
 import allure
 from locators.order_page_locators import OrderPageLocators
 from page_objects.base_page import BasePage
-from data import TestData
 
 
 class OrderPage(BasePage):
@@ -11,8 +10,8 @@ class OrderPage(BasePage):
         self.click_on_element(OrderPageLocators.select_item_in_dropdown_metro)
 
     @allure.step('Ввести дату заказа в инпут "Когда привезти самокат"')
-    def send_keys_date_by_keyboard_input(self):
-        self.send_keys_to_input(OrderPageLocators.input_date).send_keys(TestData.test_data_user1[5])
+    def send_keys_date_by_keyboard_input(self, date):
+        self.send_keys_to_input(OrderPageLocators.input_date, date)
 
     @allure.step('Кликнуть по выбранной дате в выпадающем календаре поля ввода даты начала аренды')
     def click_date_in_calendar(self):
